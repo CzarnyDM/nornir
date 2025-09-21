@@ -1,0 +1,8 @@
+routers:
+  platform: juniper_junos
+
+cisco:
+  platform: cisco_ios
+
+aruba:
+  platform: aruba_os
