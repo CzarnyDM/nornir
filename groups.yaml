@@ -1,8 +1,8 @@
 routers:
-  platform: juniper_junos
+  platform: junos
 
 cisco:
-  platform: cisco_ios
+  platform: ios
 
 aruba:
-  platform: aruba_aoscx
+  platform: aruba_osx

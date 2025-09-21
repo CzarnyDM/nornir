@@ -475,3 +475,432 @@ zte_zxros
 zyxel_os
 
 2025-09-21 22:55:36,417 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 3 hosts
+2025-09-21 23:00:51,360 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 3 hosts
+2025-09-21 23:01:27,331 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 1 hosts
+2025-09-21 23:02:07,988 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-09-21 23:02:22,447 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-09-21 23:02:36,471 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 1 hosts
+2025-09-21 23:02:55,859 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 1 hosts
+2025-09-21 23:14:19,720 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['arp_table'], 'dry_run': False} on 3 hosts
+2025-09-21 23:14:19,745 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_ios". Is the library installed?
+
+2025-09-21 23:14:19,747 - nornir.core.task -    ERROR -      start() - Host 'juniper': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "juniper_junos". Is the library installed?
+
+2025-09-21 23:14:19,750 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_aoscx". Is the library installed?
+
+2025-09-21 23:14:33,962 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['arp_table'], 'dry_run': False} on 3 hosts
+2025-09-21 23:14:33,985 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_ios". Is the library installed?
+
+2025-09-21 23:14:33,987 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_aoscx". Is the library installed?
+
+2025-09-21 23:14:33,990 - nornir.core.task -    ERROR -      start() - Host 'juniper': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "juniper_junos". Is the library installed?
+
+2025-09-21 23:17:19,815 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['arp_table'], 'dry_run': False} on 1 hosts
+2025-09-21 23:17:19,827 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_aoscx". Is the library installed?
+
+2025-09-21 23:17:39,537 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['arp_table'], 'dry_run': False} on 1 hosts
+2025-09-21 23:17:39,547 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_ios". Is the library installed?
+
+2025-09-21 23:18:00,306 -  nornir.core -  WARNING -        run() - Task 'napalm_get' has not been run – 0 hosts selected
+2025-09-21 23:18:35,231 -  nornir.core -  WARNING -        run() - Task 'napalm_get' has not been run – 0 hosts selected
+2025-09-21 23:18:46,459 -  nornir.core -  WARNING -        run() - Task 'napalm_get' has not been run – 0 hosts selected
+2025-09-21 23:18:57,889 -  nornir.core -  WARNING -        run() - Task 'napalm_get' has not been run – 0 hosts selected
+2025-09-21 23:19:31,178 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-21 23:19:31,189 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "cisco_ios". Is the library installed?
+
+2025-09-21 23:19:42,765 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-21 23:54:56,483 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-21 23:54:56,509 - nornir.core.task -    ERROR -      start() - Host 'juniper': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "juniper_junos". Is the library installed?
+
+2025-09-21 23:54:56,514 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
+2025-09-21 23:54:57,706 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-21 23:56:17,727 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-21 23:56:18,749 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-21 23:57:03,815 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-21 23:57:35,227 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-21 23:59:09,054 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-21 23:59:09,079 - nornir.core.task -    ERROR -      start() - Host 'juniper': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "juniper_junos". Is the library installed?
+
+2025-09-21 23:59:09,082 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
+2025-09-22 00:00:00,754 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-22 00:00:00,774 - nornir.core.task -    ERROR -      start() - Host 'juniper': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "juniper_junos". Is the library installed?
+
+2025-09-22 00:00:00,776 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
+2025-09-22 00:00:15,537 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-22 00:00:15,559 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
+2025-09-22 00:01:10,171 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-22 00:01:10,197 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
+2025-09-22 00:01:32,117 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-22 00:01:32,139 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
+2025-09-22 00:02:02,539 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-22 00:02:02,561 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
+2025-09-22 00:02:34,566 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-22 00:02:34,589 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
+2025-09-22 00:02:47,087 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 3 hosts
+2025-09-22 00:02:47,108 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 55, in open
+    network_driver = get_network_driver(platform)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/__init__.py", line 99, in get_network_driver
+    raise ModuleImportError(
+napalm.base.exceptions.ModuleImportError: Cannot import "aruba_osx". Is the library installed?
+
