@@ -5,15 +5,15 @@ juniper:
   username: root
   password: Test123
 
-sw1:
-  hostname: 192.168.1.221
+aruba:
+  hostname: 192.168.1.222
   groups:
     - aruba
   username: admin
   password: admin
   
-sw1:
-  hostname: 192.168.1.223 
+cisco:
+  hostname: 192.168.1.223
   groups:
     - cisco
   username: admin

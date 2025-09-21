@@ -7,11 +7,11 @@ import json
 nr = InitNornir()
 
 def show_arp():
-    cisco_nr = nr.filter(F(platform="aruba_aoscx"))
-    result = cisco_nr.run(
+    result = nr.run(
         task=netmiko_send_command,
         command_string="show arp",
         use_textfsm=True
     )
+    print_result(result)
 
 show_arp()

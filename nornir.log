@@ -1,0 +1,477 @@
+2025-09-21 22:40:35,061 -  nornir.core -  WARNING -        run() - Task 'netmiko_send_command' has not been run – 0 hosts selected
+2025-09-21 22:41:03,213 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 3 hosts
+2025-09-21 22:41:03,987 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 483, in connect
+    self._auth(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 814, in _auth
+    raise saved_exception
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 801, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/transport.py", line 1632, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/aruba/aruba_os.py", line 21, in __init__
+    return super().__init__(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1183, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: aruba_os 192.168.1.221:22
+
+Authentication failed.
+
+2025-09-21 22:41:05,955 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 483, in connect
+    self._auth(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 814, in _auth
+    raise saved_exception
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 801, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/transport.py", line 1632, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1183, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+Authentication failed.
+
+2025-09-21 22:52:06,345 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 3 hosts
+2025-09-21 22:52:09,324 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 483, in connect
+    self._auth(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 814, in _auth
+    raise saved_exception
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 801, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/transport.py", line 1632, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1183, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: cisco_ios 192.168.1.222:22
+
+
+Authentication failed.
+
+2025-09-21 22:52:10,020 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 111, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 667, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1849, in send_command
+    return_val = structured_data_converter(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 622, in structured_data_converter
+    structured_output_tfsm = get_structured_data_textfsm(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 415, in get_structured_data_textfsm
+    output = _textfsm_parse(
+             ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 369, in _textfsm_parse
+    tfsm_parse(raw_output, attrs)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/clitable.py", line 278, in ParseCmd
+    self.table = self._ParseCmdItem(self.raw, template_file=template_files[0])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/clitable.py", line 312, in _ParseCmdItem
+    for record in fsm.ParseText(cmd_input):
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 912, in ParseText
+    self._CheckLine(line)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 961, in _CheckLine
+    if self._Operations(rule, line):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 1043, in _Operations
+    raise TextFSMError(
+textfsm.parser.TextFSMError: State Error raised. Rule Line: 15. Input Line: IPv4 Address     MAC                Port         Physical Port                                      State     
+
+2025-09-21 22:52:10,588 - nornir.core.task -    ERROR -      start() - Host 'juniper': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 483, in connect
+    self._auth(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 814, in _auth
+    raise saved_exception
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 801, in _auth
+    self._transport.auth_password(username, password)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/transport.py", line 1632, in auth_password
+    return self.auth_handler.wait_for_response(my_event)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/auth_handler.py", line 263, in wait_for_response
+    raise e
+paramiko.ssh_exception.AuthenticationException: Authentication failed.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1183, in establish_connection
+    raise NetmikoAuthenticationException(msg)
+netmiko.exceptions.NetmikoAuthenticationException: Authentication to device failed.
+
+Common causes of this problem are:
+1. Invalid username and password
+2. Incorrect SSH-key file
+3. Connecting to the wrong device
+
+Device settings: juniper_junos 192.168.1.221:22
+
+
+Authentication failed.
+
+2025-09-21 22:54:50,169 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 3 hosts
+2025-09-21 22:54:53,169 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 111, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 667, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1849, in send_command
+    return_val = structured_data_converter(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 622, in structured_data_converter
+    structured_output_tfsm = get_structured_data_textfsm(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 415, in get_structured_data_textfsm
+    output = _textfsm_parse(
+             ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 369, in _textfsm_parse
+    tfsm_parse(raw_output, attrs)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/clitable.py", line 278, in ParseCmd
+    self.table = self._ParseCmdItem(self.raw, template_file=template_files[0])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/clitable.py", line 312, in _ParseCmdItem
+    for record in fsm.ParseText(cmd_input):
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 912, in ParseText
+    self._CheckLine(line)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 961, in _CheckLine
+    if self._Operations(rule, line):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 1043, in _Operations
+    raise TextFSMError(
+textfsm.parser.TextFSMError: State Error raised. Rule Line: 15. Input Line: IPv4 Address     MAC                Port         Physical Port                                      State     
+
+2025-09-21 22:55:14,407 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 3 hosts
+2025-09-21 22:55:14,429 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 455, in ConnectHandler
+    raise ValueError(
+ValueError: Unsupported 'device_type' currently supported platforms are: 
+a10
+accedian
+adtran_os
+adva_fsp150f2
+adva_fsp150f3
+alaxala_ax26s
+alaxala_ax36s
+alcatel_aos
+alcatel_sros
+allied_telesis_awplus
+apresia_aeos
+arista_eos
+arris_cer
+aruba_aoscx
+aruba_os
+aruba_osswitch
+aruba_procurve
+asterfusion_asternos
+audiocode_66
+audiocode_72
+audiocode_shell
+avaya_ers
+avaya_vsp
+bintec_boss
+broadcom_icos
+brocade_fastiron
+brocade_fos
+brocade_netiron
+brocade_nos
+brocade_vdx
+brocade_vyos
+calix_b6
+casa_cmts
+cdot_cros
+centec_os
+checkpoint_gaia
+ciena_saos
+ciena_saos10
+ciena_waveserver
+cisco_apic
+cisco_asa
+cisco_ftd
+cisco_ios
+cisco_nxos
+cisco_s200
+cisco_s300
+cisco_tp
+cisco_viptela
+cisco_wlc
+cisco_xe
+cisco_xr
+cloudgenix_ion
+corelight_linux
+coriant
+cumulus_linux
+dell_dnos9
+dell_force10
+dell_isilon
+dell_os10
+dell_os6
+dell_os9
+dell_powerconnect
+dell_sonic
+digi_transport
+dlink_ds
+edgecore_sonic
+ekinops_ek360
+eltex
+eltex_esr
+endace
+enterasys
+ericsson_ipos
+ericsson_mltn63
+ericsson_mltn66
+extreme
+extreme_ers
+extreme_exos
+extreme_netiron
+extreme_nos
+extreme_slx
+extreme_tierra
+extreme_vdx
+extreme_vsp
+extreme_wing
+f5_linux
+f5_ltm
+f5_tmsh
+fiberstore_fsos
+fiberstore_fsosv2
+fiberstore_networkos
+flexvnf
+fortinet
+garderos_grs
+generic
+generic_termserver
+h3c_comware
+hillstone_stoneos
+hp_comware
+hp_procurve
+huawei
+huawei_olt
+huawei_smartax
+huawei_smartaxmmi
+huawei_vrp
+huawei_vrpv8
+infinera_packet
+ipinfusion_ocnos
+juniper
+juniper_junos
+juniper_screenos
+keymile
+keymile_nos
+lancom_lcossx4
+linux
+maipu
+mellanox
+mellanox_mlnxos
+mikrotik_routeros
+mikrotik_switchos
+mrv_lx
+mrv_optiswitch
+nec_ix
+netapp_cdot
+netgear_prosafe
+netscaler
+nokia_srl
+nokia_sros
+oneaccess_oneos
+ovs_linux
+paloalto_panos
+pluribus
+quanta_mesh
+rad_etx
+raisecom_roap
+ruckus_fastiron
+ruijie_os
+silverpeak_vxoa
+sixwind_os
+sophos_sfos
+supermicro_smis
+telcosystems_binos
+teldat_cit
+tplink_jetstream
+ubiquiti_edge
+ubiquiti_edgerouter
+ubiquiti_edgeswitch
+ubiquiti_unifiswitch
+vertiv_mph
+vyatta_vyos
+vyos
+watchguard_fireware
+yamaha
+zte_zxros
+zyxel_os
+
+2025-09-21 22:55:36,417 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True} on 3 hosts
