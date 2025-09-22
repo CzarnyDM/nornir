@@ -5,4 +5,4 @@ cisco:
   platform: ios
 
 aruba:
-  platform: aruba_osx
+  platform: aruba_os
