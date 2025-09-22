@@ -2305,3 +2305,617 @@ AttributeError: 'IOSDriver' object has no attribute 'get_arp_table(vrf: str = ''
 2025-09-22 21:44:17,585 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp vrf all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
 2025-09-22 21:44:29,515 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all-vrfs', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
 2025-09-22 21:45:03,505 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all-vrfs', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 21:55:22,395 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 2 hosts
+2025-09-22 21:55:32,442 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 384, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 114, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+                           ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/ios/ios.py", line 172, in open
+    self.device = self._netmiko_open(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 123, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 192.168.1.223
+
+2025-09-22 21:56:18,145 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 2 hosts
+2025-09-22 21:56:21,250 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 114, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+                           ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/ios/ios.py", line 172, in open
+    self.device = self._netmiko_open(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 123, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 192.168.1.223
+
+2025-09-22 21:57:29,081 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 2 hosts
+2025-09-22 21:57:32,162 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 114, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+                           ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/ios/ios.py", line 172, in open
+    self.device = self._netmiko_open(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 123, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 192.168.1.223
+
+2025-09-22 22:05:51,386 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 2 hosts
+2025-09-22 22:05:54,467 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 114, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+                           ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/ios/ios.py", line 172, in open
+    self.device = self._netmiko_open(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 123, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 192.168.1.223
+
+2025-09-22 22:06:56,188 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 22:06:59,266 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 114, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+                           ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/ios/ios.py", line 172, in open
+    self.device = self._netmiko_open(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 123, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 192.168.1.223
+
+2025-09-22 22:09:03,501 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 22:10:32,221 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 22:17:18,967 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 2 hosts
+2025-09-22 22:17:22,050 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 114, in _netmiko_open
+    self._netmiko_device = ConnectHandler(
+                           ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 32, in napalm_get
+    device = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/connections/__init__.py", line 57, in open
+    connection.open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/ios/ios.py", line 172, in open
+    self.device = self._netmiko_open(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/napalm/base/base.py", line 123, in _netmiko_open
+    raise ConnectionException("Cannot connect to {}".format(self.hostname))
+napalm.base.exceptions.ConnectionException: Cannot connect to 192.168.1.223
+
+2025-09-22 22:34:52,105 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show vrf', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/cisco_ios_show_vrf.textfsm '} on 2 hosts
+2025-09-22 22:34:55,196 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+2025-09-22 22:36:53,730 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show vrf', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/cisco_ios_show_vrf.textfsm'} on 2 hosts
+2025-09-22 22:36:56,828 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+2025-09-22 22:52:07,292 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show vrf', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/cisco_ios_show_vrf.textfsm'} on 2 hosts
+2025-09-22 22:52:10,363 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+2025-09-22 22:58:25,919 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show vrf', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/cisco_ios_show_vrf.textfsm'} on 2 hosts
+2025-09-22 22:58:28,988 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+2025-09-22 23:08:56,186 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show vrf', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/cisco_ios_show_vrf.textfsm'} on 2 hosts
+2025-09-22 23:08:59,260 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
+2025-09-22 23:09:44,368 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show vrf', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/cisco_ios_show_vrf.textfsm'} on 2 hosts
+2025-09-22 23:09:47,451 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.223
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: cisco_ios 192.168.1.223:22
+
+
+
