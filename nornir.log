@@ -2080,3 +2080,228 @@ Device settings: aruba_os 192.168.1.222:22
 2025-09-22 01:31:56,178 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp'} on 1 hosts
 2025-09-22 01:32:14,701 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp'} on 1 hosts
 2025-09-22 01:32:32,822 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp'} on 1 hosts
+2025-09-22 19:07:45,029 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show mac-address-table', 'use_textfsm': True, 'textfsm_template': '/home/docker/scripts/device_scanner/template/aruba_aoscx_show_mac-address-table.textfsm'} on 1 hosts
+2025-09-22 19:08:12,790 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show mac-address-table', 'use_textfsm': True, 'textfsm_template': '/home/docker/scripts/device_scanner/template/aruba_aoscx_show_mac-address-table.textfsm'} on 1 hosts
+2025-09-22 19:08:55,784 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show mac-address-table', 'use_textfsm': True, 'textfsm_template': '/home/docker/scripts/device_scanner/template/aruba_aoscx_show_mac-address-table.textfsm'} on 1 hosts
+2025-09-22 19:10:45,443 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_mac-address-table.textfsm'} on 1 hosts
+2025-09-22 19:11:13,160 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:13:16,723 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:14:43,673 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:16:21,065 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show mac-address-table', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_mac-address-table.textfsm'} on 1 hosts
+2025-09-22 19:16:22,698 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 32, in netmiko_send_command
+    result = net_connect.send_command(command_string, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 111, in wrapper_decorator
+    return_val = func(self, *args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 667, in wrapper_decorator
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1849, in send_command
+    return_val = structured_data_converter(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 622, in structured_data_converter
+    structured_output_tfsm = get_structured_data_textfsm(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 434, in get_structured_data_textfsm
+    return _textfsm_parse(
+           ^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/utilities.py", line 367, in _textfsm_parse
+    tfsm_parse(raw_output, templates=template_file)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/clitable.py", line 278, in ParseCmd
+    self.table = self._ParseCmdItem(self.raw, template_file=template_files[0])
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/clitable.py", line 312, in _ParseCmdItem
+    for record in fsm.ParseText(cmd_input):
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 912, in ParseText
+    self._CheckLine(line)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 961, in _CheckLine
+    if self._Operations(rule, line):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/textfsm/parser.py", line 1043, in _Operations
+    raise TextFSMError(
+textfsm.parser.TextFSMError: State Error raised. Rule Line: 13. Input Line: No MAC entries found.
+
+2025-09-22 19:20:45,705 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:20:55,739 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 384, in connect
+    sock.connect(addr)
+TimeoutError: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/aruba/aruba_os.py", line 21, in __init__
+    return super().__init__(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: aruba_os 192.168.1.222:22
+
+
+
+2025-09-22 19:23:27,732 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:26:30,564 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:29:16,065 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:29:46,422 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:30:19,259 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all vrfs', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:30:31,970 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all vrf', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:30:42,944 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:32:56,513 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:34:45,673 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:35:29,940 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:35:46,922 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:37:30,255 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:37:46,003 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:42:00,529 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:43:50,453 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:45:55,009 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:52:11,205 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:52:58,744 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:54:32,825 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:58:51,538 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 19:59:16,043 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 20:00:26,342 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 20:00:51,595 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 20:02:12,941 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 20:02:56,621 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 20:03:25,470 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 20:03:50,605 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 20:04:38,996 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:05:40,942 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:06:37,917 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:07:30,709 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:07:43,214 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:07:58,066 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table'], 'use_textfsm': True} on 1 hosts
+2025-09-22 20:07:59,172 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 44, in napalm_get
+    result[g] = method(**options)
+                ^^^^^^^^^^^^^^^^^
+TypeError: IOSDriver.get_arp_table() got an unexpected keyword argument 'use_textfsm'
+
+2025-09-22 20:08:23,333 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table'], 'use_textfsm': True} on 1 hosts
+2025-09-22 20:08:24,218 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 44, in napalm_get
+    result[g] = method(**options)
+                ^^^^^^^^^^^^^^^^^
+TypeError: IOSDriver.get_arp_table() got an unexpected keyword argument 'use_textfsm'
+
+2025-09-22 20:09:22,804 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table'], 'use_textfsm': True} on 1 hosts
+2025-09-22 20:09:23,888 - nornir.core.task -    ERROR -      start() - Host 'cisco': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 44, in napalm_get
+    result[g] = method(**options)
+                ^^^^^^^^^^^^^^^^^
+TypeError: IOSDriver.get_arp_table() got an unexpected keyword argument 'use_textfsm'
+
+2025-09-22 20:10:11,196 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:11:32,993 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:12:03,862 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:12:34,063 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:12:52,205 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:13:15,947 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:13:38,811 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:14:47,285 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:23:37,681 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:41:23,411 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:43:54,621 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 20:47:19,534 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 1 hosts
+2025-09-22 21:06:27,766 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 2 hosts
+2025-09-22 21:09:24,389 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 2 hosts
+2025-09-22 21:10:27,825 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table(vrf: str= )']} on 2 hosts
+2025-09-22 21:10:28,896 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 43, in napalm_get
+    method = getattr(device, getter)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IOSDriver' object has no attribute 'get_arp_table(vrf: str= )'
+
+2025-09-22 21:10:29,109 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 43, in napalm_get
+    method = getattr(device, getter)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IOSDriver' object has no attribute 'get_arp_table(vrf: str= )'
+
+2025-09-22 21:11:47,314 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ["get_arp_table(vrf: str = '')"]} on 2 hosts
+2025-09-22 21:11:48,568 - nornir.core.task -    ERROR -      start() - Host 'R1': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 43, in napalm_get
+    method = getattr(device, getter)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IOSDriver' object has no attribute 'get_arp_table(vrf: str = '')'
+
+2025-09-22 21:11:48,771 - nornir.core.task -    ERROR -      start() - Host 'R2': task 'napalm_get' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_napalm/plugins/tasks/napalm_get.py", line 43, in napalm_get
+    method = getattr(device, getter)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'IOSDriver' object has no attribute 'get_arp_table(vrf: str = '')'
+
+2025-09-22 21:13:11,153 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': {'get_arp_table': {'vrf': ''}}} on 2 hosts
+2025-09-22 21:13:33,499 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': {'get_arp_table': {'vrf': 'Cust_A'}}} on 2 hosts
+2025-09-22 21:43:03,386 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp vrf-all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 21:43:48,592 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp vrf-all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 21:44:05,454 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp vrf', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 21:44:17,585 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp vrf all', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 21:44:29,515 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all-vrfs', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-22 21:45:03,505 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all-vrfs', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
