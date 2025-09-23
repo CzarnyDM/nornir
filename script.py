@@ -11,6 +11,7 @@ from datetime import datetime
 from getpass import getpass
 from pprint import pprint
 import csv
+import inquirer
 
 date = datetime.now().strftime("%Y-%m-%d")
 
@@ -26,10 +27,10 @@ def tprint(*args, **kwargs):
 output = "./output/"
 
 nr = InitNornir(config_file="inventory/config.yaml")
-
+# --------------------FUNCITONS-----------------------------
 # ---------------------------------------------------------
 def show_arp_aruba():
-    filtered_hosts = nr.filter(F(hostname="172.28.4.67"))
+    filtered_hosts = nr.filter(F(groups__contains="aruba"))
     result = filtered_hosts.run(
         task=netmiko_send_command,
         command_string="show arp all-vrfs",
@@ -158,6 +159,26 @@ def obtain_vrfs():
             tprint(f"ARP output appended to {output_file}")
 
 
-# Call the function
-obtain_vrfs()
-show_arp_ios()
+# ---------------------------------------------------------
+
+def user_prompt():
+    user_prompt = [
+        inquirer.List('device', message="Select device type to run show arp", choices=['Cisco IOS', 'Aruba AOS-CX', 'Both'])
+    ]
+    answers = inquirer.prompt(user_prompt)
+
+    if answers['device'] == 'Cisco IOS':
+        show_arp_ios()
+        obtain_vrfs()
+    elif answers['device'] == 'Aruba AOS-CX':
+        show_arp_aruba()
+    elif answers['device'] == 'Both':
+        show_arp_ios()
+        obtain_vrfs()
+        show_arp_aruba()
+
+# ---------------------------------------------------------
+# --------------------MAIN PROGRAM--------------------------
+# ---------------------------------------------------------
+
+user_prompt()
