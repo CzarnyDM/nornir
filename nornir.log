@@ -4219,3 +4219,52 @@ Device settings: cisco_ios 192.168.1.223:22
 2025-09-23 19:27:14,221 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp vrf Cust-B', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/cisco_ios_show_arp.textfsm'} on 2 hosts
 2025-09-23 19:27:14,337 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp vrf Cust-C', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/cisco_ios_show_arp.textfsm'} on 2 hosts
 2025-09-23 19:27:14,543 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all-vrfs', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-23 20:59:14,292 -  nornir.core -     INFO -        run() - Running task 'napalm_get' with args {'getters': ['get_arp_table']} on 2 hosts
+2025-09-23 23:05:16,093 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'show arp all-vrfs', 'use_textfsm': True, 'textfsm_template': '/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm'} on 1 hosts
+2025-09-23 23:05:19,217 - nornir.core.task -    ERROR -      start() - Host 'aruba': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1146, in establish_connection
+    self.remote_conn_pre.connect(**ssh_connect_params)
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/paramiko/client.py", line 407, in connect
+    raise NoValidConnectionsError(errors)
+paramiko.ssh_exception.NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 192.168.1.222
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/task.py", line 98, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/tasks/netmiko_send_command.py", line 26, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 476, in get_connection
+    self.open_connection(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir/core/inventory.py", line 528, in open_connection
+    conn_obj.open(
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/nornir_netmiko/connections/netmiko.py", line 59, in open
+    connection = ConnectHandler(**parameters)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/ssh_dispatcher.py", line 460, in ConnectHandler
+    return ConnectionClass(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/aruba/aruba_os.py", line 21, in __init__
+    return super().__init__(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 495, in __init__
+    self._open()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 500, in _open
+    self.establish_connection()
+  File "/home/admin/python/nornir/mac_address_export/nornir/lib/python3.11/site-packages/netmiko/base_connection.py", line 1168, in establish_connection
+    raise NetmikoTimeoutException(msg)
+netmiko.exceptions.NetmikoTimeoutException: TCP connection to device failed.
+
+Common causes of this problem are:
+1. Incorrect hostname or IP address.
+2. Wrong TCP port.
+3. Intermediate firewall blocking access.
+
+Device settings: aruba_os 192.168.1.222:22
+
+
+
