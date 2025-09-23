@@ -4,4 +4,9 @@ R2,default,192.168.1.2,DC:A6:32:2A:10:38,Raspberry Pi Trading Ltd,GigabitEtherne
 R2,default,192.168.1.221,50:00:00:03:00:03,N/A,GigabitEthernet0/0
 R2,default,192.168.1.222,08:00:09:88:32:58,Hewlett Packard,GigabitEthernet0/0
 R2,default,192.168.1.224,50:00:00:08:00:00,N/A,GigabitEthernet0/0
+R2,default,192.168.1.1,74:12:13:14:41:B0,N/A,GigabitEthernet0/0
+R2,default,192.168.1.2,DC:A6:32:2A:10:38,Raspberry Pi Trading Ltd,GigabitEthernet0/0
+R2,default,192.168.1.221,50:00:00:03:00:03,N/A,GigabitEthernet0/0
+R2,default,192.168.1.222,08:00:09:88:32:58,Hewlett Packard,GigabitEthernet0/0
+R2,default,192.168.1.224,50:00:00:08:00:00,N/A,GigabitEthernet0/0
 R2,Cust-C,172.16.0.1,5000.0008.0003,N/A,GigabitEthernet0/3

@@ -1,0 +1,38 @@
+2025-09-23 19:27:08 - INFO - Script started
+2025-09-23 19:27:10 - INFO - Connected (version 1.99, client Cisco-1.25)
+2025-09-23 19:27:10 - INFO - Connected (version 1.99, client Cisco-1.25)
+2025-09-23 19:27:11 - INFO - Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2025-09-23 19:27:11 - INFO - Authentication (password) successful!
+2025-09-23 19:27:11 - INFO - Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2025-09-23 19:27:11 - INFO - Authentication (password) successful!
+2025-09-23 19:27:12 - INFO - Generating vendor info (Raspberry Pi Trading Ltd)
+2025-09-23 19:27:12 - INFO - No vendor info found for 50:00:00:02:00:00
+2025-09-23 19:27:12 - INFO - Script executed for R1 in 0.2310687490098644 seconds
+2025-09-23 19:27:12 - INFO - No vendor info found for 74:12:13:14:41:B0
+2025-09-23 19:27:12 - INFO - Generating vendor info (Raspberry Pi Trading Ltd)
+2025-09-23 19:27:12 - INFO - No vendor info found for 50:00:00:03:00:03
+2025-09-23 19:27:12 - INFO - Generating vendor info (Hewlett Packard)
+2025-09-23 19:27:12 - INFO - No vendor info found for 50:00:00:08:00:00
+2025-09-23 19:27:12 - INFO - Script executed for R2 in 0.2310687490098644 seconds
+2025-09-23 19:27:12 - INFO - Connected (version 1.99, client Cisco-1.25)
+2025-09-23 19:27:12 - INFO - Connected (version 1.99, client Cisco-1.25)
+2025-09-23 19:27:13 - INFO - Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2025-09-23 19:27:13 - INFO - Authentication (password) successful!
+2025-09-23 19:27:13 - INFO - Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2025-09-23 19:27:13 - INFO - Authentication (password) successful!
+2025-09-23 19:27:14 - INFO - Quering the ARP table for the VRF - Cust-A on R2
+2025-09-23 19:27:14 - INFO - Output appended to R2_2025-09-23.csv
+2025-09-23 19:27:14 - INFO - Script executed for R2 in 0.2310687490098644 seconds
+2025-09-23 19:27:14 - INFO - Quering the ARP table for the VRF - Cust-B on R2
+2025-09-23 19:27:14 - INFO - Output appended to R2_2025-09-23.csv
+2025-09-23 19:27:14 - INFO - Script executed for R2 in 0.2310687490098644 seconds
+2025-09-23 19:27:14 - INFO - Quering the ARP table for the VRF - Cust-C on R2
+2025-09-23 19:27:14 - INFO - No vendor info found for 5000.0008.0003
+2025-09-23 19:27:14 - INFO - Output appended to R2_2025-09-23.csv
+2025-09-23 19:27:14 - INFO - Script executed for R2 in 0.2310687490098644 seconds
+2025-09-23 19:27:14 - INFO - Connected (version 2.0, client OpenSSH_9.6)
+2025-09-23 19:27:14 - INFO - Auth banner: b"\n By downloading, copying, or using the AOS-CX OVA you agree to both the\n End User License Agreement and the Additional License Authorization.\n AOS-CX Virtual Platform is provided for Training purposes only.\n As a reminder, there is no support or warranty associated with this platform.\n\n (C) Copyright 2017-2024 Hewlett Packard Enterprise Development LP\n\n                      RESTRICTED RIGHTS LEGEND\n Confidential computer software. Valid license from Hewlett Packard Enterprise\n Development LP required for possession, use, or copying. License found at\n https://www.hpe.com/us/en/software/licensing.html.\n By using the software, you acknowledge that you have read and understand\n the license, represent you are authorized to accept this license, and agree\n to be bound by its terms. If you do not agree to these terms, do not use the\n software. Consistent with FAR 12.211 and 12.212, Commercial Computer Software,\n Computer Software Documentation, and Technical Data for Commercial Items are\n licensed to the U.S. Government under vendor's standard commercial license.\n\n\n"
+2025-09-23 19:27:14 - INFO - Authentication (password) successful!
+2025-09-23 19:27:16 - INFO - No vendor info found for 74:12:13:14:41:b0
+2025-09-23 19:27:16 - INFO - Generating vendor info (Raspberry Pi Trading Ltd)
+2025-09-23 19:27:16 - INFO - Script executed for aruba in 0.2310687490098644 seconds

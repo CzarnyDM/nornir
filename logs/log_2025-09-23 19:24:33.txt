@@ -1,0 +1,8 @@
+2025-09-23 19:24:35 - INFO - Connected (version 1.99, client Cisco-1.25)
+2025-09-23 19:24:35 - INFO - Connected (version 1.99, client Cisco-1.25)
+2025-09-23 19:24:36 - INFO - Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2025-09-23 19:24:36 - INFO - Authentication (password) successful!
+2025-09-23 19:24:36 - INFO - Auth banner: b"\r\n**************************************************************************\r\n* IOSv is strictly limited to use for evaluation, demonstration and IOS  *\r\n* education. IOSv is provided as-is and is not supported by Cisco's      *\r\n* Technical Advisory Center. Any use or disclosure, in whole or in part, *\r\n* of the IOSv Software or Documentation to any third party for any       *\r\n* purposes is expressly prohibited except as otherwise authorized by     *\r\n* Cisco in writing.                                                      *\r\n**************************************************************************"
+2025-09-23 19:24:36 - INFO - Authentication (password) successful!
+2025-09-23 19:24:37 - INFO - Generating vendor info (Raspberry Pi Trading Ltd)
+2025-09-23 19:24:37 - INFO - No vendor info found for 50:00:00:02:00:00

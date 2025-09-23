@@ -8,36 +8,58 @@ from napalm import get_network_driver
 import os
 from mac_vendor_lookup import MacLookup
 from datetime import datetime
+import time
 from getpass import getpass
 from pprint import pprint
 import csv
 import inquirer
+import logging
 
+nr = InitNornir(config_file="inventory/config.yaml")
 date = datetime.now().strftime("%Y-%m-%d")
-
+date_and_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 output_dir = "./output"
+output = "./output/"
 os.makedirs(output_dir, exist_ok=True)
 
+logging.basicConfig(
+    filename=f"./logs/log_{date_and_time}.txt",             # Log file path
+    level=logging.INFO,             # Minimum level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+    format="%(asctime)s - %(levelname)s - %(message)s",  # Log format
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
+# -----------------EXECUTION TIME---------------------
+
+start_time = time.perf_counter()
+
+for i in range(1000000):
+    pass
+
+end_time = time.perf_counter()
+execution_time = end_time - start_time
+
+# ---------------------------------------------------------
+# ---------------BIND TIMESTAMP TO THE PRINT---------------
 
 def tprint(*args, **kwargs):
     timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(f"[{timestamp}]", *args, **kwargs)
 
+# ---------------------------------------------------------
 
-output = "./output/"
 
-nr = InitNornir(config_file="inventory/config.yaml")
 # --------------------FUNCITONS-----------------------------
 # ---------------------------------------------------------
 def show_arp_aruba():
+    start_time
     filtered_hosts = nr.filter(F(groups__contains="aruba"))
     result = filtered_hosts.run(
         task=netmiko_send_command,
         command_string="show arp all-vrfs",
         use_textfsm=True,
-        textfsm_template="/home/docker/scripts/device_scanner/template/aruba_aoscx_show_arp_all-vrfs.textfsm"
+        textfsm_template="/home/admin/python/nornir/mac_address_export/templates/aruba_aoscx_show_arp_all-vrfs.textfsm"
     )
-    print_result(result)
+    # print_result(result)
 
     # Loop through the results and write to CSV files
     for host_name, multi_result in result.items():  # Loop through each host's results
@@ -58,18 +80,21 @@ def show_arp_aruba():
 
                 try:
                     vendor = MacLookup().lookup(mac_address)
-                    tprint(f"Generating vendor info ({vendor})")
+                    logging.info(f"Generating vendor info ({vendor})")
                 except:
                     vendor = "N/A"
-                    tprint("No vendor info found")
+                    logging.info(f"No vendor info found for {mac_address}")
 
                 f.write(f"{host_name},{vrf},{ip_address},{mac_address},{vendor},{interface}\n")
 
-        tprint(f"ARP output saved to {output_file}")
+        tprint(f"Output saved to {host_name}_{date}.csv")
+        end_time
+        logging.info(f"Script executed for {host_name} in {execution_time} seconds")
 
 
 # ---------------------------------------------------------
 def show_arp_ios():
+    start_time
     filtered_hosts = nr.filter(F(groups__contains="cisco"))
     result = filtered_hosts.run(
         task=napalm_get,
@@ -96,16 +121,19 @@ def show_arp_ios():
 
                 try:
                     vendor = MacLookup().lookup(mac_address)
+                    logging.info(f"Generating vendor info ({vendor})")
                 except Exception:
                     vendor = "N/A"
-
+                    logging.info(f"No vendor info found for {mac_address}")
                 f.write(f"{host_name},default,{ip_address},{mac_address},{vendor},{interface}\n")
 
-        tprint(f"ARP output saved to {output_file}")
-
+        tprint(f"Output saved to {host_name}_{date}.csv")
+        end_time
+        logging.info(f"Script executed for {host_name} in {execution_time} seconds")
 
 # ---------------------------------------------------------
 def obtain_vrfs():
+    start_time
     date = datetime.now().strftime("%Y-%m-%d")
     output_dir = "./output"
     os.makedirs(output_dir, exist_ok=True)
@@ -127,7 +155,7 @@ def obtain_vrfs():
 
         for entry in vrfs:
             vrf_name = entry["name"]
-            tprint(f"Running show arp vrf {vrf_name} on {host_name}")
+            logging.info(f"Quering the ARP table for the VRF - {vrf_name} on {host_name}")
 
             arp_result = filtered_hosts.run(
                 task=netmiko_send_command,
@@ -151,19 +179,23 @@ def obtain_vrfs():
 
                     try:
                         vendor = MacLookup().lookup(mac_address)
+                        logging.info(f"Generating vendor info ({vendor})")
                     except Exception:
                         vendor = "N/A"
-
+                        logging.info(f"No vendor info found for {mac_address}")
                     f.write(f"{host_name},{vrf_name},{ip_address},{mac_address},{vendor},{interface}\n")
 
-            tprint(f"ARP output appended to {output_file}")
-
+            logging.info(f"Output appended to {host_name}_{date}.csv")
+            end_time
+            logging.info(f"Script executed for {host_name} in {execution_time} seconds")
 
 # ---------------------------------------------------------
 
 def user_prompt():
+    print("PLEASE WAIT")
+    logging.info("Script started")
     user_prompt = [
-        inquirer.List('device', message="Select device type to run show arp", choices=['Cisco IOS', 'Aruba AOS-CX', 'Both'])
+        inquirer.List('device', message="Select the ship", choices=['Cisco IOS', 'Aruba AOS-CX', 'Both'])
     ]
     answers = inquirer.prompt(user_prompt)
 
